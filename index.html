@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EcoParque Santo Aleixo - Eventos e Hospedagem em meio à natureza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script type="module" crossorigin src="/assets/main-BN3BWtk_.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DJu5ismh.css">
+</head>
+
+<body class="font-sans text-gray-800" x-data="{ 
+  mobileMenuOpen: false,
+  activeSection: 'home',
+  checkActiveSection() {
+    const sections = ['home', 'eventos', 'hospedagem', 'atracoes', 'infraestrutura', 'contato'];
+    sections.forEach(section => {
+      const el = document.getElementById(section);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          this.activeSection = section;
+        }
+      }
+    });
+  }
+}" x-init="window.addEventListener('scroll', () => checkActiveSection())">
+  <!-- Header -->
+  <header class="fixed z-50 w-full bg-gradient-to-b from-black/50 to-transparent" x-data="{ mobileMenuOpen: false }">
+    <div class="container flex items-center justify-between px-4 py-4 mx-auto">
+      <div class="flex items-center">
+        <a href="#" class="text-3xl font-bold text-white font-script">
+          EcoParque<span class="block -mt-2 text-xl">Santo Aleixo</span>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop menu -->
+      <nav class="hidden space-x-1 md:flex">
+        <a href="#home" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'home' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Home</a>
+        <a href="#atracoes" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'atracoes' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Atrações</a>
+        <a href="#infraestrutura" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'infraestrutura' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Infraestrutura</a>
+        <a href="#eventos" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'eventos' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Eventos</a>
+        <a href="#hospedagem" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'hospedagem' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Hospedagem</a>
+        <a href="#contato" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'contato' ? 'border border-white/50 bg-white/20' : 'hover:bg-white/20'">Contato</a>
+      </nav>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden" x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition>
+      <nav class="flex flex-col w-full bg-black/80">
+        <a href="#home" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'home' ? 'bg-white/30' : 'hover:bg-white/20'">Home</a>
+        <a href="#infraestrutura" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'infraestrutura' ? 'bg-white/30' : 'hover:bg-white/20'">Infraestrutura</a>
+        <a href="#atracoes" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'atracoes' ? 'bg-white/30' : 'hover:bg-white/20'">Atrações</a>
+        <a href="#eventos" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'eventos' ? 'bg-white/30' : 'hover:bg-white/20'">Eventos</a>
+        <a href="#hospedagem" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'hospedagem' ? 'bg-white/30' : 'hover:bg-white/20'">Hospedagem</a>
+        <a href="#contato" class="px-4 py-2 text-white transition"
+          :class="activeSection === 'contato' ? 'bg-white/30' : 'hover:bg-white/20'">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="flex items-center min-h-screen pt-24 hero-section">
+    <div class="container px-4 mx-auto text-white">
+      <h1 class="max-w-3xl mb-12 text-4xl font-script md:text-6xl lg:text-7xl leading-12">
+        Celebre momentos inesquecíveis em meio a natureza!
+      </h1>
+      <div class="max-w-4xl p-6 rounded-lg bg-black/30 backdrop-blur-xs">
+        <p class="mb-4">
+          O <strong>Ecoparque Santo Aleixo</strong> é o cenário perfeito para eventos e hospedagem. Oferecemos um espaço
+          completo para festas, casamentos e retiros, além do conforto da <strong>Pousada Recanto do Bosque</strong>
+          para quem deseja se hospedar e aproveitar a tranquilidade da serra.
+        </p>
+        <div class="flex flex-col gap-4 mt-8 sm:flex-row">
+          <a href="/eventos.html"
+            class="px-6 py-3 font-medium text-center text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+            Mais sobre Eventos
+          </a>
+          <a href="/hospedagem.html"
+            class="px-6 py-3 font-medium text-center transition bg-white rounded-md hover:bg-gray-100 text-eco-dark">
+            Mais sobre Hospedagem
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature highlights -->
+      <div class="grid gap-6 mt-16 mb-6 md:grid-cols-3">
+        <div class="p-6 rounded-lg bg-black/30 backdrop-blur-xs border-gradient">
+          <h3 class="mb-2 text-xl font-bold">Salão de Eventos</h3>
+          <p class="text-sm">Um lindo salão de eventos com cozinha equipada</p>
+        </div>
+        <div class="p-6 rounded-lg bg-black/30 backdrop-blur-xs border-gradient">
+          <h3 class="mb-2 text-xl font-bold">Duas piscinas</h3>
+          <p class="text-sm">Uma grande para adultos e outra só para os pequenos se divertirem</p>
+        </div>
+        <div class="p-6 rounded-lg bg-black/30 backdrop-blur-xs border-gradient">
+          <h3 class="mb-2 text-xl font-bold">Piscina natural</h3>
+          <p class="text-sm">Uma piscina com água direto da fonte sempre geladinha pra te refrescar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Santo Aleixo Section -->
+  <section id="sobre" class="py-20 bg-gray-50">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Sobre Santo Aleixo</h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="mb-6 text-lg">
+          Santo Aleixo, em Magé, é um destino marcado pela união entre natureza, história e tradição. Situado aos pés da <strong>Serra dos Órgãos</strong>, o distrito é cercado por Mata Atlântica preservada, rios de águas cristalinas e cachoeiras que encantam visitantes durante todo o ano. Entre seus atrativos naturais, destacam-se as quedas d'água e piscinas naturais que fazem da região um verdadeiro refúgio para quem busca tranquilidade e contato com a natureza.
+        </p>
+        <p class="text-lg">
+          Além das belezas naturais, Santo Aleixo carrega uma história rica, ligada ao desenvolvimento de antigas fazendas, capelas e da indústria têxtil que ajudou a construir a identidade da região desde o século XIX. A abundância de rios e nascentes foi essencial para esse crescimento histórico, tornando o distrito um importante marco de Magé.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attractions Section -->
+  <section id="atracoes" class="py-20 bg-white">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Atrações de Santo Aleixo</h2>
+      <p class="mb-12 text-xl text-center">Descubra as belezas naturais da região:</p>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/tamanqueiro.png" alt="Poço do Tamanqueiro" class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Poço do Tamanqueiro</h3>
+            <p>Uma das mais belas cachoeiras da região, com águas cristalinas.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/cachoeira-do-monjolo.jpeg" alt="Cachoeira do Monjolos"
+              class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Cachoeira do Monjolos</h3>
+            <p>Cachoeira de fácil acesso e ideal para banho.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/pegada-do-gigante.jpg" alt="Pegada do Gigante" class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Pegada do Gigante</h3>
+            <p>Formação rochosa natural que lembra uma pegada gigante.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/igreja-santo-aleixo.jpeg" alt="Igreja de Santo Aleixo"
+              class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Igreja de Santo Aleixo (Século XVIII)</h3>
+            <p>Construção histórica que preserva a arquitetura colonial.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/trilhas.jpeg" alt="Trilhas ecológicas"
+              class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Trilhas ecológicas</h3>
+            <p>Diversas trilhas para todos os níveis de caminhada.</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-lg shadow-md bg-gray-50">
+          <div class="h-48 bg-gray-200">
+            <img src="/assets/img/piscina-natural.jpg" alt="Piscina Natural"
+              class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-xl font-bold">Piscina Natural</h3>
+            <p>Alimentada por nascentes da serra, a piscina natural oferece água fresca e cristalina em meio à Mata Atlântica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure Section -->
+  <section id="infraestrutura" class="py-20 bg-eco-green/10">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Infraestrutura do Ecoparque</h2>
+      <p class="mb-12 text-xl text-center">O Ecoparque Santo Aleixo oferece uma estrutura completa para eventos e
+        hospedagem:</p>
+
+      <div class="grid gap-12 mb-16 md:grid-cols-2">
+        <div class="p-8 bg-white rounded-lg shadow-md">
+          <h3 class="mb-6 text-2xl font-bold text-eco-dark">Para eventos:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Área gramada e área pavimentada para cerimônias e festas.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Salão de eventos com cozinha equipada.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Duas piscinas (uma infantil e uma para adultos).</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Piscina natural com água da nascente.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Campo de futebol society.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Áreas de churrasqueiras.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-8 bg-white rounded-lg shadow-md">
+          <h3 class="mb-6 text-2xl font-bold text-eco-dark">Para hospedagem:</h3>
+          <ul class="space-y-6">
+            <li>
+              <p class="flex items-start mb-2">
+                <span class="mr-2 text-eco-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                </span>
+                <span class="font-bold">Casarão Colonial</span>
+              </p>
+              <p class="ml-6">Comporta até 25 pessoas, perfeito para grupos e retiros.</p>
+            </li>
+            <li>
+              <p class="flex items-start mb-2">
+                <span class="mr-2 text-eco-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                </span>
+                <span class="font-bold">Pousada Recanto do Bosque</span>
+              </p>
+              <p class="mb-2 ml-6">12 apartamentos equipados com:</p>
+              <ul class="ml-10 space-y-1">
+                <li>- Cozinha funcional (pia, microondas, frigobar e cafeteira).</li>
+                <li>- Banheiro privativo.</li>
+                <li>- Quarto com ventilador e TV.</li>
+                <li>- Varanda com rede para descanso.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="mt-8 space-y-4">
+            <p class="flex items-start">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Localização privilegiada: no caminho para as cachoeiras e trilhas da região.</span>
+            </p>
+
+            <div>
+              <p class="flex items-start mb-2">
+                <span class="mr-2 text-eco-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                  </svg>
+                </span>
+                <span class="font-bold">Opções de alimentação no local:</span>
+              </p>
+              <ul class="ml-8 space-y-2">
+                <li>
+                  <p class="font-medium">Quebra-Galho</p>
+                  <p class="text-sm">Restaurante com refeições caseiras e lanches.</p>
+                </li>
+                <li>
+                  <p class="font-medium">Divina Casa & Garimpo Café</p>
+                  <p class="text-sm">Bistrô onde você pode experimentar bolos caseiros, pães artesanais acompanhados por
+                    cafés diferentes, soda italiana ou sucos.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="eventos" class="py-20 bg-white">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Eventos</h2>
+
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div>
+          <h3 class="mb-4 text-2xl font-bold">Realize seu evento em meio à natureza</h3>
+          <p class="mb-4">O Ecoparque Santo Aleixo é o local perfeito para:</p>
+          <ul class="mb-6 space-y-2">
+            <li class="flex items-center">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Casamentos</span>
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Festas de aniversário</span>
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Retiros corporativos</span>
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Encontros familiares</span>
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2 text-eco-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Eventos religiosos</span>
+            </li>
+          </ul>
+
+          <a href="/eventos.html"
+            class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+            Mais sobre Eventos
+          </a>
+        </div>
+
+        <div class="overflow-hidden bg-gray-100 rounded-lg">
+          <img src="/assets/img/Ecoparque/IMG_20211001_122911976.jpg" alt="Evento no Ecoparque" class="object-cover w-full h-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Section -->
+  <section id="hospedagem" class="py-20 bg-eco-green/10">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Hospedagem</h2>
+
+      <div class="grid items-center gap-12 mb-16 md:grid-cols-2">
+        <div class="order-2 overflow-hidden bg-gray-100 rounded-lg md:order-1">
+          <img src="/assets/img/pousada.jpeg" alt="Pousada Recanto do Bosque"
+            class="object-cover w-full h-full">
+        </div>
+
+        <div class="order-1 md:order-2">
+          <h3 class="mb-4 text-2xl font-bold">Pousada Recanto do Bosque</h3>
+          <p class="mb-4">
+            Nossa pousada oferece conforto e tranquilidade em meio à natureza, com 12 apartamentos completamente
+            equipados para sua estadia.
+          </p>
+          <p class="mb-6">
+            Cada apartamento conta com cozinha funcional, banheiro privativo, quarto confortável e varanda com rede para
+            você relaxar e aproveitar o clima da serra.
+          </p>
+          <a href="#contato"
+            class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+            Reservar agora
+          </a>
+        </div>
+      </div>
+
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div>
+          <h3 class="mb-4 text-2xl font-bold">Casarão Colonial</h3>
+          <p class="mb-4">
+            Para grupos maiores, oferecemos o Casarão Colonial, uma opção espaçosa que comporta até 25 pessoas.
+          </p>
+          <p class="mb-6">
+            Ideal para retiros, encontros familiares ou grupos de amigos que desejam privacidade e conforto.
+          </p>
+          <a href="#contato"
+            class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+            Consultar disponibilidade
+          </a>
+        </div>
+
+        <div class="overflow-hidden bg-gray-100 rounded-lg">
+          <img src="/assets/img/casarao.jpeg" alt="Casarão Colonial" class="object-cover w-full h-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-white">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">O que nossos clientes dizem</h2>
+
+      <div class="relative max-w-2xl mx-auto"
+        x-data="{
+          current: 0,
+          testimonials: [
+            {
+              name: 'Mylla',
+              event: 'Hóspede',
+              text: 'Obrigada! Amei aqui, todo mundo amou, meu cunhado está fascinado. Seu maior feedback é meu filho, essa pessoinha é chata, ama estar em casa e odeia sair, e hoje pela primeira vez vejo ele implorando para ficar em algum lugar, sinal que ele amou, sentiu uma energia boa, então quero te dizer vão com tudo que esse lugar já é abençoado e terá muito mais sucesso cada vez mais.',
+              image: '/assets/img/mylla-depoimento.jpeg'
+            }
+          ],
+          get total() { return this.testimonials.length },
+          next() { this.current = (this.current + 1) % this.total },
+          prev() { this.current = (this.current - 1 + this.total) % this.total }
+        }"
+        x-init="setInterval(() => next(), 6000)">
+
+        <!-- Faixa deslizante -->
+        <div class="overflow-hidden rounded-lg shadow-md">
+          <div class="flex transition-transform duration-500 ease-in-out"
+               :style="'transform: translateX(-' + (current * 100) + '%)'">
+            <template x-for="(testimonial, index) in testimonials" :key="index">
+              <div class="w-full flex-shrink-0 p-8 bg-gray-50">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full border-2 border-eco-green">
+                    <img :src="testimonial.image" :alt="testimonial.name" class="object-cover w-full h-full">
+                  </div>
+                  <div>
+                    <p class="mb-3 text-lg italic text-gray-700 leading-relaxed"
+                       x-text="'&ldquo;' + testimonial.text + '&rdquo;'"></p>
+                    <h4 class="font-bold text-eco-dark" x-text="testimonial.name"></h4>
+                    <p class="text-sm text-gray-500" x-text="testimonial.event"></p>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Setas (aparecem só com mais de 1 depoimento) -->
+        <template x-if="total > 1">
+          <div>
+            <button @click="prev()"
+              style="position:absolute;left:-1.5rem;top:50%;transform:translateY(-50%)"
+              class="bg-white rounded-full shadow-md p-2 transition text-eco-green hover:text-eco-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button @click="next()"
+              style="position:absolute;right:-1.5rem;top:50%;transform:translateY(-50%)"
+              class="bg-white rounded-full shadow-md p-2 transition text-eco-green hover:text-eco-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </template>
+
+        <!-- Dots (aparecem só com mais de 1 depoimento) -->
+        <div class="flex justify-center mt-6 gap-4" x-show="total > 1">
+          <template x-for="(t, i) in testimonials" :key="i">
+            <button @click="current = i"
+              class="w-2 h-2 rounded-full transition-all duration-300"
+              :class="current === i ? 'bg-eco-green scale-125' : 'bg-gray-300'">
+            </button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="localizacao" class="py-20 bg-eco-green/10">
+    <div class="container px-4 mx-auto">
+      <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Localização</h2>
+
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div>
+          <p class="flex items-start mb-4">
+            <span class="mr-2 font-bold text-eco-green">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+            <span class="font-bold">Endereço:</span> Santo Aleixo, Magé, RJ
+          </p>
+          <p class="mb-6">
+            O Ecoparque Santo Aleixo está localizado no distrito de Santo Aleixo, em Magé, aos pés da Serra dos Órgãos.
+            Um local de fácil acesso e com belezas naturais deslumbrantes.
+          </p>
+          <a href="https://www.google.com/maps/place/Recanto+do+Bosque+-+Santo+Aleixo/@-22.5505784,-43.0547422,251m/data=!3m1!1e3!4m9!3m8!1s0x99a51064c36535:0x6e585038dc98f89d!5m2!4m1!1i2!8m2!3d-22.5507093!4d-43.0546925!16s%2Fg%2F11pdbzdtvh?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank"
+            class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+            Ver no Google Maps
+          </a>
+        </div>
+
+        <div class="overflow-hidden bg-gray-200 rounded-lg h-80">
+          <iframe
+            src="https://maps.google.com/maps?q=-22.5507093,-43.0546925&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Localização Recanto do Bosque - Santo Aleixo">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section — conteúdo carregado de /assets/partials/contato.html -->
+  <section id="contato" class="py-20 bg-white">
+    <div id="contato-partial" class="container px-4 mx-auto"></div>
+  </section>
+  <script>
+    fetch('/assets/partials/contato.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('contato-partial').innerHTML = html; });
+  </script>
+
+  <!-- Footer -->
+  <footer class="py-12 text-white bg-eco-dark">
+    <div class="container px-4 mx-auto">
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <a href="#" class="inline-block mb-4 text-3xl font-bold text-white font-script">
+            EcoParque<span class="block -mt-2 text-xl">Santo Aleixo</span>
+          </a>
+          <p class="mb-4">
+            O cenário perfeito para eventos e hospedagem em meio à natureza.
+          </p>
+          <p class="text-sm">
+            CNPJ: 66.093.974/0001-75
+          </p>
+        </div>
+
+        <div>
+          <h4 class="mb-4 text-xl font-bold">Links rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="transition hover:text-eco-light">Home</a></li>
+            <li><a href="#eventos" class="transition hover:text-eco-light">Eventos</a></li>
+            <li><a href="#hospedagem" class="transition hover:text-eco-light">Hospedagem</a></li>
+            <li><a href="#atracoes" class="transition hover:text-eco-light">Atrações</a></li>
+            <li><a href="#infraestrutura" class="transition hover:text-eco-light">Infraestrutura</a></li>
+            <li><a href="#contato" class="transition hover:text-eco-light">Contato</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-4 text-xl font-bold">Horário de funcionamento</h4>
+          <ul class="space-y-2">
+            <li>Segunda a Sexta: 8h às 18h</li>
+            <li>Sábado e Domingo: 8h às 20h</li>
+            <li>Feriados: 8h às 20h</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 mt-8 text-center border-t border-white/20">
+        <p>&copy; <span x-text="new Date().getFullYear()"></span> EcoParque Santo Aleixo. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

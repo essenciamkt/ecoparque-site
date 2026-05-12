@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedagem no EcoParque Santo Aleixo - Conforto em meio à natureza</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" crossorigin src="/assets/main-BN3BWtk_.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-DJu5ismh.css">
+    <style>
+        .hospedagem-hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/img/hospedagem-fundo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800" x-data="{ 
+  activeSection: 'home',
+  sections: ['home', 'acomodacoes', 'servicos', 'atracoes', 'tarifas', 'contato'],
+  checkActiveSection() {
+    this.sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const offset = 200;
+        if (rect.top <= offset && rect.bottom >= offset) {
+          this.activeSection = section;
+        }
+      }
+    });
+  }
+}" x-init="
+  window.addEventListener('scroll', () => checkActiveSection());
+  window.addEventListener('load', () => checkActiveSection());
+">
+    <!-- Header -->
+    <header class="fixed z-50 w-full bg-gradient-to-b from-black/50 to-transparent" x-data="{ mobileMenuOpen: false }">
+        <div class="container flex items-center justify-between px-4 py-4 mx-auto">
+            <div class="flex items-center">
+                <a href="index.html" class="text-3xl font-bold text-white font-script">
+                    EcoParque<span class="block -mt-2 text-xl">Santo Aleixo</span>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop menu -->
+            <nav class="hidden space-x-1 md:flex">
+                <a href="index.html" class="px-4 py-2 text-white transition hover:bg-white/20">Home</a>
+                <a href="eventos.html" class="px-4 py-2 text-white transition hover:bg-white/20">Eventos</a>
+                <a href="#home"
+                    class="px-4 py-2 text-white transition border hover:bg-white/20 border-white/50 bg-white/20">Hospedagem</a>
+                <a href="#acomodacoes" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'border border-white/50 bg-white/20': activeSection === 'acomodacoes'}">Acomodações</a>
+                <a href="#atracoes" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'border border-white/50 bg-white/20': activeSection === 'atracoes'}">Atrações</a>
+                <a href="#contato" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'border border-white/50 bg-white/20': activeSection === 'contato'}">Contato</a>
+            </nav>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden" x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition>
+            <nav class="flex flex-col w-full bg-black/80">
+                <a href="index.html" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    @click="mobileMenuOpen = false">Home</a>
+                <a href="eventos.html" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    @click="mobileMenuOpen = false">Eventos</a>
+                <a href="#home" class="px-4 py-2 text-white transition bg-white/20"
+                    @click="mobileMenuOpen = false">Hospedagem</a>
+                <a href="#acomodacoes" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'bg-white/20': activeSection === 'acomodacoes'}"
+                    @click="mobileMenuOpen = false">Acomodações</a>
+                <a href="#atracoes" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'bg-white/20': activeSection === 'atracoes'}" @click="mobileMenuOpen = false">Atrações</a>
+                <a href="#contato" class="px-4 py-2 text-white transition hover:bg-white/20"
+                    :class="{'bg-white/20': activeSection === 'contato'}" @click="mobileMenuOpen = false">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="flex items-center min-h-screen pt-24 hospedagem-hero-section">
+        <div class="container px-4 mx-auto text-white">
+            <h1 class="max-w-3xl mb-6 text-4xl font-script md:text-6xl lg:text-7xl">
+                Hospedagem com conforto em meio à natureza!
+            </h1>
+            <div class="max-w-2xl p-6 rounded-lg bg-black/30 backdrop-blur-sm">
+                <p class="mb-4">
+                    O <strong>Ecoparque Santo Aleixo</strong> oferece opções de hospedagem para quem deseja aproveitar a
+                    tranquilidade da serra. Escolha entre a <strong>Pousada Recanto do Bosque</strong> ou o
+                    <strong>Casarão Colonial</strong> e desfrute de momentos inesquecíveis.
+                </p>
+                <div class="flex flex-col gap-4 mt-8 sm:flex-row">
+                    <a href="#acomodacoes"
+                        class="px-6 py-3 font-medium text-center text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+                        Ver Acomodações
+                    </a>
+                    <a href="#contato"
+                        class="px-6 py-3 font-medium text-center transition bg-white rounded-md hover:bg-gray-100 text-eco-dark">
+                        Fazer Reserva
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature highlights -->
+            <div class="grid gap-8 mt-16 md:grid-cols-3">
+                <div class="p-6 rounded-lg bg-black/40 backdrop-blur-sm">
+                    <h3 class="mb-2 text-xl font-bold">Apartamentos Equipados</h3>
+                    <p>Cozinha funcional, banheiro privativo e varanda com rede</p>
+                </div>
+                <div class="p-6 rounded-lg bg-black/40 backdrop-blur-sm">
+                    <h3 class="mb-2 text-xl font-bold">Piscinas e Lazer</h3>
+                    <p>Piscinas para adultos e crianças, além de piscina natural</p>
+                </div>
+                <div class="p-6 rounded-lg bg-black/40 backdrop-blur-sm">
+                    <h3 class="mb-2 text-xl font-bold">Localização Privilegiada</h3>
+                    <p>Próximo às principais cachoeiras e trilhas da região</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acomodações Section -->
+    <section id="acomodacoes" class="py-20 bg-white">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Nossas Acomodações</h2>
+            <p class="mb-12 text-xl text-center">Oferecemos duas opções de hospedagem para atender às suas necessidades:
+            </p>
+
+            <!-- Pousada Recanto do Bosque -->
+            <div class="grid items-center gap-12 mb-20 md:grid-cols-2">
+                <div class="order-2 overflow-hidden bg-gray-100 rounded-lg md:order-1">
+                    <img src="/assets/img/Ecoparque/IMG_20211027_164447808.jpg" alt="Pousada Recanto do Bosque"
+                        class="object-cover w-full h-full">
+                </div>
+
+                <div class="order-1 md:order-2">
+                    <h3 class="mb-4 text-2xl font-bold">Pousada Recanto do Bosque</h3>
+                    <p class="mb-4">
+                        Nossa pousada oferece conforto e tranquilidade em meio à natureza, com 12 apartamentos
+                        completamente equipados para sua estadia.
+                    </p>
+                    <p class="mb-6">
+                        Cada apartamento conta com:
+                    </p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Cozinha funcional (pia, microondas, frigobar e cafeteira)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Banheiro privativo com chuveiro quente</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Quarto com ventilador e TV</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Varanda com rede para descanso</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Wi-Fi gratuito</span>
+                        </li>
+                    </ul>
+                    <a href="#contato"
+                        class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+                        Reservar agora
+                    </a>
+                </div>
+            </div>
+
+            <!-- Casarão Colonial -->
+            <div class="grid items-center gap-12 md:grid-cols-2">
+                <div>
+                    <h3 class="mb-4 text-2xl font-bold">Casarão Colonial</h3>
+                    <p class="mb-4">
+                        Para grupos maiores, oferecemos o Casarão Colonial, uma opção espaçosa que comporta até 25
+                        pessoas.
+                    </p>
+                    <p class="mb-4">
+                        Ideal para retiros, encontros familiares ou grupos de amigos que desejam privacidade e conforto.
+                    </p>
+                    <p class="mb-6">
+                        O Casarão Colonial oferece:
+                    </p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>6 quartos amplos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>3 banheiros completos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Cozinha completa e equipada</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Sala de estar ampla</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Varanda com vista para a serra</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Churrasqueira privativa</span>
+                        </li>
+                    </ul>
+                    <a href="#contato"
+                        class="inline-block px-6 py-3 font-medium text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+                        Consultar disponibilidade
+                    </a>
+                </div>
+
+                <div class="overflow-hidden bg-gray-100 rounded-lg">
+                    <img src="/assets/img/Ecoparque/IMG_20211027_164516758.jpg" alt="Casarão Colonial"
+                        class="object-cover w-full h-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-20 bg-eco-green/10">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Nossos Serviços</h2>
+            <p class="mb-12 text-xl text-center">Oferecemos diversos serviços para tornar sua estadia ainda mais
+                agradável:</p>
+
+            <div class="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto">
+                <!-- Wi-Fi -->
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 mr-4 rounded-full bg-eco-green/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-eco-green" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                            </svg>
+                        </span>
+                        <h3 class="text-xl font-bold">Wi-Fi Gratuito</h3>
+                    </div>
+                    <p>Disponibilizamos Wi-Fi gratuito em todas as áreas da pousada e do Casarão Colonial, permitindo
+                        que você se mantenha conectado mesmo em meio à natureza.</p>
+                </div>
+
+                <!-- Estacionamento -->
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 mr-4 rounded-full bg-eco-green/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-eco-green" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                            </svg>
+                        </span>
+                        <h3 class="text-xl font-bold">Estacionamento</h3>
+                    </div>
+                    <p>Estacionamento gratuito e seguro para todos os hóspedes, com vagas próximas às acomodações para
+                        maior comodidade.</p>
+                </div>
+
+                <!-- Alimentação -->
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 mr-4 rounded-full bg-eco-green/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-eco-green" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </span>
+                        <h3 class="text-xl font-bold">Opções de Alimentação</h3>
+                    </div>
+                    <p>Contamos com o restaurante Quebra-Galho e o bistrô Divina Casa & Garimpo Café, onde você pode
+                        desfrutar de refeições caseiras, lanches, bolos artesanais e cafés especiais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atrações Section -->
+    <section id="atracoes" class="py-20 bg-white">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Atrações e Lazer</h2>
+            <p class="mb-12 text-xl text-center">Desfrute de diversas opções de lazer durante sua estadia:</p>
+
+            <div class="grid gap-12 mb-16 md:grid-cols-2">
+                <div>
+                    <h3 class="mb-6 text-2xl font-bold text-eco-dark">No EcoParque:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Piscina para adultos com deck para banho de sol.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Piscina infantil segura e divertida para as crianças.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Piscina natural com água da nascente, sempre fresquinha.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Campo de futebol society para partidas entre amigos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Áreas de churrasqueira para momentos de confraternização.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Trilha ecológica dentro da propriedade.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="mb-6 text-2xl font-bold text-eco-dark">Na Região:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Poço do Tamanqueiro - Uma das mais belas cachoeiras da região.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Cachoeira do Monjolos - Ideal para banho e de fácil acesso.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Pegada do Gigante - Formação rochosa natural impressionante.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Igreja de Santo Aleixo - Construção histórica do século XVIII.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-eco-green">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <span>Trilhas ecológicas - Diversas opções para todos os níveis.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tarifas Section -->
+    <section id="tarifas" class="py-20 bg-eco-green/10">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-12 text-3xl font-bold text-center md:text-4xl text-eco-dark">Tarifas e Reservas</h2>
+            <p class="mb-12 text-xl text-center">Confira nossas tarifas e faça sua reserva:</p>
+
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Pousada Recanto do Bosque -->
+                <div class="overflow-hidden bg-white rounded-lg shadow-md">
+                    <div class="px-6 py-4 text-white bg-eco-green">
+                        <h3 class="text-2xl font-bold">Pousada Recanto do Bosque</h3>
+                    </div>
+                    <div class="p-6">
+
+                        <div class="mb-4">
+                            <h4 class="mb-2 text-base font-bold">Suítes Casal com Ar-condicionado</h4>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Suíte 1 — casal</span>
+                                <span class="font-bold">R$ 250,00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Suíte 2 — casal</span>
+                                <span class="font-bold">R$ 250,00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="mb-2 text-base font-bold">Suítes Casal sem Ar-condicionado</h4>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Suíte 3 — casal</span>
+                                <span class="font-bold">R$ 220,00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Suíte 4 — casal</span>
+                                <span class="font-bold">R$ 220,00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="mb-2 text-base font-bold">Suítes Família sem Ar-condicionado</h4>
+                            <p class="mb-1 text-xs text-gray-500">1 cama de casal + 2 camas de solteiro</p>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Suíte 7 — família</span>
+                                <span class="font-bold">R$ 320,00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Suíte 8 — família</span>
+                                <span class="font-bold">R$ 320,00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="mb-2 text-base font-bold">Suítes Lavanda com Ar-condicionado</h4>
+                            <p class="mb-1 text-xs text-gray-500">1 cama de casal + 1 cama de solteiro</p>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Suíte 9 — lavanda</span>
+                                <span class="font-bold">R$ 300,00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Suíte 10 — lavanda</span>
+                                <span class="font-bold">R$ 300,00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="mb-2 text-base font-bold">Apartamento Duplo com Ar-condicionado</h4>
+                            <p class="mb-1 text-xs text-gray-500">2 suítes — cada uma com 1 cama de casal + 1 cama de solteiro</p>
+                            <div class="flex justify-between text-sm">
+                                <span>Apartamento</span>
+                                <span class="font-bold">R$ 600,00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 text-sm text-gray-600">
+                            <p>* Tarifas sujeitas a alteração em feriados e datas especiais.</p>
+                        </div>
+
+                        <a href="#contato"
+                            class="block w-full px-6 py-3 font-medium text-center text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+                            Reservar Agora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Casarão Colonial -->
+                <div class="overflow-hidden bg-white rounded-lg shadow-md">
+                    <div class="px-6 py-4 text-white bg-eco-green">
+                        <h3 class="text-2xl font-bold">Casarão Colonial</h3>
+                    </div>
+                    <div class="p-6">
+
+                        <div class="mb-6">
+                            <h4 class="mb-2 text-base font-bold">Quartos por pessoa</h4>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Quarto 1 <span class="text-gray-500">(até 4 pessoas)</span></span>
+                                <span class="font-bold">R$ 80,00/pessoa</span>
+                            </div>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Quarto 2 <span class="text-gray-500">(até 4 pessoas)</span></span>
+                                <span class="font-bold">R$ 80,00/pessoa</span>
+                            </div>
+                            <div class="flex justify-between pb-2 mb-1 border-b text-sm">
+                                <span>Quarto 3 <span class="text-gray-500">(até 4 pessoas)</span></span>
+                                <span class="font-bold">R$ 80,00/pessoa</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Suíte Grande <span class="text-gray-500">(até 6 pessoas)</span></span>
+                                <span class="font-bold">R$ 80,00/pessoa</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 text-sm text-gray-600">
+                            <p>* Café da manhã não incluso, mas pode ser contratado à parte.</p>
+                            <p>* Capacidade máxima: 25 pessoas.</p>
+                            <p>* Tarifas sujeitas a alteração em feriados e datas especiais.</p>
+                        </div>
+
+                        <a href="#contato"
+                            class="block w-full px-6 py-3 font-medium text-center text-white transition rounded-md bg-eco-green hover:bg-eco-dark">
+                            Consultar Disponibilidade
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faça sua Reserva Section -->
+    <section class="py-20 bg-eco-green/10">
+        <div class="container px-4 mx-auto">
+            <h2 class="mb-10 text-3xl font-bold text-center md:text-4xl text-eco-dark">Faça sua Reserva</h2>
+            <div class="p-6 bg-white rounded-lg shadow-md" style="max-width:480px;margin-left:auto;margin-right:auto">
+                <h4 class="mb-4 text-lg font-bold">Informações importantes:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-eco-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </span>
+                        <span>Check-in: a partir das 14h</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-eco-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </span>
+                        <span>Check-out: até as 12h</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-eco-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </span>
+                        <span>Aceitamos animais de pequeno porte (consulte condições)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-eco-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </span>
+                        <span>Formas de pagamento: PIX, cartões de crédito e débito</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section — conteúdo carregado de /assets/partials/contato.html -->
+    <section id="contato" class="py-20 bg-white">
+        <div id="contato-partial" class="container px-4 mx-auto"></div>
+    </section>
+    <script>
+      fetch('/assets/partials/contato.html')
+        .then(r => r.text())
+        .then(html => { document.getElementById('contato-partial').innerHTML = html; });
+    </script>
+
+    <!-- Footer -->
+    <footer class="py-12 text-white bg-eco-dark">
+        <div class="container px-4 mx-auto">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <a href="index.html" class="inline-block mb-4 text-3xl font-bold text-white font-script">
+                        EcoParque<span class="block -mt-2 text-xl">Santo Aleixo</span>
+                    </a>
+                    <p class="mb-4">
+                        O cenário perfeito para eventos e hospedagem em meio à natureza.
+                    </p>
+                    <p class="text-sm">
+                        CNPJ: 66.093.974/0001-75
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="mb-4 text-xl font-bold">Links rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="transition hover:text-eco-light">Home</a></li>
+                        <li><a href="#home" class="transition hover:text-eco-light">Eventos</a></li>
+                        <li><a href="hospedagem.html" class="transition hover:text-eco-light">Hospedagem</a></li>
+                        <li><a href="#tipos-eventos" class="transition hover:text-eco-light">Tipos de Eventos</a></li>
+                        <li><a href="#estrutura" class="transition hover:text-eco-light">Estrutura</a></li>
+                        <li><a href="#pacotes" class="transition hover:text-eco-light">Pacotes</a></li>
+                        <li><a href="#contato" class="transition hover:text-eco-light">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="mb-4 text-xl font-bold">Horário de funcionamento</h4>
+                    <ul class="space-y-2">
+                        <li>Segunda a Sexta: 8h às 18h</li>
+                        <li>Sábado e Domingo: 8h às 20h</li>
+                        <li>Feriados: 8h às 20h</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 mt-8 text-center border-t border-white/20">
+                <p>&copy; 2025 EcoParque Santo Aleixo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
